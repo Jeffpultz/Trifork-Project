@@ -1,4 +1,4 @@
-# Trifork-assignment
+# Trifork-Project
 This was an assignment for a job interview
 
 
