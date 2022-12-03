@@ -28,4 +28,4 @@ Press the pencil and the information will be filled out in the form, make the ch
 I wanted to do some improvements if i had the time, like making more checks for values, and make so you didn't have to refresh to get the new things from the database 
 
 ## Other notes
-This was a really fun project and made me learn some kotlin and angular.
+This was a really fun project and made me learn some kotlin and angular. As well as getting a more handson experince with docker
