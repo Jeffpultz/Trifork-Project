@@ -1,7 +1,7 @@
 FROM gradle:7.2 AS BUILD
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN ./gradlew build
+RUN gradlew build
 
 FROM openjdk:17-alpine
 EXPOSE 8080
