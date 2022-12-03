@@ -1,0 +1,53 @@
+### POST "Fake Person"
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "cpr": "8974390231",
+  "name": "Fake Person Joe",
+  "blood_type": "O-",
+  "age": 30
+}
+
+### POST "Test Subject"
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "cpr": "2803945565",
+  "name": "Test Subject Doe",
+  "blood_type": "AB",
+  "age": 22
+}
+
+### POST "Last person"
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "cpr": "1104905685",
+  "name": "Last Person Jane",
+  "blood_type": "O-",
+  "age": 30
+}
+
+
+### GET all the people
+GET http://localhost:8080/api/persons
+
+### GET the person with CPR
+GET http://localhost:8080/api/persons/1104905685
+
+### UPDATE a person
+PATCH http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "cpr": "1104905685",
+  "name": "Last Person Jane",
+  "blood_type": "AB",
+  "age": 34
+}
+
+### DELETE a person
+DELETE http://localhost:8080/api/persons/1104905685

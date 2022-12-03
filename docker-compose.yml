@@ -1,0 +1,10 @@
+services:
+  api:
+    build: ./triforkAssignment
+    ports:
+      - 8080:8080
+  angular:
+    build: ./triforkAngular
+    ports:
+      - 8000:8000
+  

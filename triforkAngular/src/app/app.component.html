@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div class="bg-gray-800 w-full min-h-screen flex flex-col justify-center items-center">
+<div class="w-6/12">
+  <div class="w-full flex flex-col bg-gray-800 mb-10 justify-center items-center">
+    <h2 class="text-white text-2xl mb-2">Find a Person by CPR number</h2>
+    <form [formGroup]="findPersonForm" (ngSubmit)="findPerson()" class="w-6/12 mb-5">
+      <input type="search" formControlName="searchTerm" class="w-full p-2 focus:outline-none" placeholder="example: 888888-2020" />
+    </form>
+
+    <table *ngIf="foundPerson" class="text-white table-auto text-center">
+      <thead>
+        <tr>
+          <th class="border border-slate-600 p-2">CPR</th>
+          <th class="border border-slate-600 p-2">Name</th>
+          <th class="border border-slate-600 p-2">Blood type</th>
+          <th class="border border-slate-600 p-2">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-slate-700 p-2">{{foundPerson.cpr}}</td>
+          <td class="border border-slate-700 p-2">{{foundPerson.name}}</td>
+          <td class="border border-slate-700 p-2">{{foundPerson.blood_type}}</td>
+          <td class="border border-slate-700 p-2">{{foundPerson.age}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+  <div class="w-6/12">
+    <div class="w-full flex flex-col justify-center items-center mb-10 border-2 border-orange-600 bg-slate-700">
+        <h2 class="text-white text-2xl mb-4">Add New Person</h2>
+        <form [formGroup]="personForm" (ngSubmit)="addPerson()" class="flex flex-col justify-center items-center text-black border-transparent focus:border-transparent focus:ring-0">
+          <label class="text-white">CPR:</label>
+          <input type="text" class="border-transparent focus:border-transparent focus:ring-0 focus:outline-none" formControlName="cpr" />
+          <label class="text-white">Name:</label>
+          <input type="text" class="border-transparent focus:border-transparent focus:ring-0 focus:outline-none" formControlName=name/>
+          <label class="text-white">Blood Type:</label>
+          <select id="blood_type" name="bloodType" formControlName="blood_type">
+            <option value="AB-">AB-</option>
+            <option value="AB+">AB+</option>
+            <option value="B-">B-</option>
+            <option value="B+">B+</option>
+            <option value="A-">A-</option>
+            <option value="A+">A+</option>
+            <option value="O-">O-</option>
+            <option value="O+">O+</option>
+          </select>
+          <label class="text-white">Age</label>
+          <input type="text" class="border-transparent focus:border-transparent focus:ring-0 focus:outline-none" formControlName="age" />
+                    <button type="submit" class="bg-gray-500 mb-2 p-2 mt-2 rounded-md w-32 text-white hover:bg-gray-600">Submit</button>
+        </form>
+    </div>
+    <div class="w-full flex justify-center items-center">
+      <table class="text-white table-auto text-center">
+        <thead>
+          <tr>
+            <th class="border border-slate-600 p-2">CPR</th>
+            <th class="border border-slate-600 p-2">Name</th>
+            <th class="border border-slate-600 p-2">Blood type</th>
+            <th class="border border-slate-600 p-2">Age</th>
+            <th class="border border-slate-600 p-2">Edit icon</th>
+            <th class="border border-slate-600 p-2">Delete icon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons | async">
+            <td class="border border-slate-700 p-2">{{getCPR(person.cpr)}}</td>
+            <td class="border border-slate-700 p-2">{{person.name}}</td>
+            <td class="border border-slate-700 p-2">{{person.blood_type}}</td>
+            <td class="border border-slate-700 p-2">{{person.age}}</td>
+            <td class="border border-slate-700 p-2"><span (click)="editPerson(person)" class="material-icons cursor-pointer">
+              edit
+              </span></td>
+            <td class="border border-slate-700 p-2"><span (click)="deletePerson(person.cpr)" class="material-icons cursor-pointer">
+              close
+              </span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
