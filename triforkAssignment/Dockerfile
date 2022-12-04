@@ -1,6 +1,9 @@
 FROM gradle:7.2 AS BUILD
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+USER root
+RUN chown -R gradle /home/gradle/src
+USER gradle
 RUN gradlew build
 
 FROM openjdk:17-alpine
