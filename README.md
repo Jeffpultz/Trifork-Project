@@ -1,6 +1,9 @@
 # Trifork-Project
 This was an assignment for a job interview
 
+### Known issue
+There is some times problem with running the ./gradlew build command i have tested this on a few computers and it works most of the time.
+Sadly i don't have a fix for this as of yet and wanted to hand this in a, somewhat timely manner so if it becomes an issue i recommend either opening the project in Intellij and running it from there, Or maybe try to change the docker file in angularassigment to use "gradlew build" instead
 
 # How to use
 Download the repository and use **docker-compose up** in the folder.
